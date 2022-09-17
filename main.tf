@@ -44,7 +44,7 @@ data "aws_iam_policy_document" "default" {
 
 resource "aws_iam_policy" "default" {
   count       = module.context.enabled && var.policy_document_count > 0 ? 1 : 0
-  name        = module.context.id
+  name        = "${module.context.id}-policy"
   description = var.policy_description
   policy      = join("", data.aws_iam_policy_document.default.*.json)
   path        = var.path
