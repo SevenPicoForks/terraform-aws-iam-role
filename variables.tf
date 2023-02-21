@@ -88,3 +88,14 @@ variable "tags_enabled" {
   description = "Enable/disable tags on IAM roles and policies"
   default     = true
 }
+
+variable "in_line_policies" {
+  type = map(any)
+  description = <<EOF
+{
+  "policy-8675309" : data.aws_iam_policy_document.inline_policy.json
+  "policy-8675310" : data.aws_iam_policy_document.inline_policy2.json
+}
+EOF
+  default = {}
+}

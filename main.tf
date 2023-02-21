@@ -35,6 +35,14 @@ resource "aws_iam_role" "default" {
   permissions_boundary = var.permissions_boundary
   path                 = var.path
   tags                 = var.tags_enabled ? module.context.tags : null
+
+  dynamic "inline_policy" {
+    for_each = var.in_line_policies
+    content {
+      name = inline_policy.key
+      policy = inline_policy.value
+    }
+  }
 }
 
 data "aws_iam_policy_document" "default" {
