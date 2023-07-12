@@ -90,12 +90,12 @@ variable "tags_enabled" {
 }
 
 variable "in_line_policies" {
-  type = map(any)
+  type        = map(any)
   description = <<EOF
 {
   "policy-8675309" : data.aws_iam_policy_document.inline_policy.json
   "policy-8675310" : data.aws_iam_policy_document.inline_policy2.json
 }
 EOF
-  default = {}
+  default     = {}
 }

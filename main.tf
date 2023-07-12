@@ -39,7 +39,7 @@ resource "aws_iam_role" "default" {
   dynamic "inline_policy" {
     for_each = var.in_line_policies
     content {
-      name = inline_policy.key
+      name   = inline_policy.key
       policy = inline_policy.value
     }
   }
