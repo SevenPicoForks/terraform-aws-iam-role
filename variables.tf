@@ -20,6 +20,12 @@ variable "policy_documents" {
   default     = []
 }
 
+variable "assume_role_policy_document_override" {
+  type        = string
+  description = "Allow for a richer trust relationship definition."
+  default     = null
+}
+
 variable "policy_document_count" {
   type        = number
   description = "Number of policy documents (length of policy_documents list)"
